@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haftalık Plan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: rgb(131, 33, 90);
+    }
+
+    header {
+      background: #75b9d4;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 4px solid #6d6f91;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    main {
+      margin: 20px auto;
+      max-width: 900px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    main:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 2px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    table th {
+      background-color: #b9589c;
+      color: white;
+      font-size: 1.2em;
+    }
+
+    table td input {
+      width: 90%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background-color: #f1f1f1;
+      transition: all 0.3s ease;
+    }
+
+    table td input:focus {
+      border-color: #be98ab;
+      background-color: #e0f2f1;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: #7b346f;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #9e8b93;
+      color: white;
+      border-top: 4px solid #c58d5c;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 18px;
+      background: #64b5f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: hsl(299, 37%, 44%);
+    }
+
+    nav {
+      background: rgb(107, 46, 131);
+      color: white;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background: #c255b5;
+    }
+
+    .save-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #009688;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .save-button:hover {
+      background-color: #9e95e5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Haftalık Plan
+  </header>
+
+  <nav>
+    <a href="gunluk.html">Günlük Plan</a>
+    <a href="haftalik.html">Haftalık Plan</a>
+    <a href="aylik.html">Aylık Plan</a>
+    <a href="index.html">Ana Sayfa</a>
+  </nav>
+
+  <main>
+    <h2>Haftalık Görevler</h2>
+    <form action="#" method="POST">
+      <table>
+        <thead>
+          <tr>
+            <th>Pazartesi</th>
+            <th>Salı</th>
+            <th>Çarşamba</th>
+            <th>Perşembe</th>
+            <th>Cuma</th>
+            <th>Cumartesi</th>
+            <th>Pazar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="task1" placeholder="Görev 1"></td>
+            <td><input type="text" name="task2" placeholder="Görev 2"></td>
+            <td><input type="text" name="task3" placeholder="Görev 3"></td>
+            <td><input type="text" name="task4" placeholder="Görev 4"></td>
+            <td><input type="text" name="task5" placeholder="Görev 5"></td>
+            <td><input type="text" name="task6" placeholder="Görev 6"></td>
+            <td><input type="text" name="task7" placeholder="Görev 7"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="task8" placeholder="Görev 8"></td>
+            <td><input type="text" name="task9" placeholder="Görev 9"></td>
+            <td><input type="text" name="task10" placeholder="Görev 10"></td>
+            <td><input type="text" name="task11" placeholder="Görev 11"></td>
+            <td><input type="text" name="task12" placeholder="Görev 12"></td>
+            <td><input type="text" name="task13" placeholder="Görev 13"></td>
+            <td><input type="text" name="task14" placeholder="Görev 14"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="task15" placeholder="Görev 15"></td>
+            <td><input type="text" name="task16" placeholder="Görev 16"></td>
+            <td><input type="text" name="task17" placeholder="Görev 17"></td>
+            <td><input type="text" name="task18" placeholder="Görev 18"></td>
+            <td><input type="text" name="task19" placeholder="Görev 19"></td>
+            <td><input type="text" name="task20" placeholder="Görev 20"></td>
+            <td><input type="text" name="task21" placeholder="Görev 21"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="save-button">Kaydet</button>
+    </form>
+    <a href="index.html" class="back-link">Ana Sayfaya Dön</a>
+  </main>
+
+  <footer>
+    <p>Hazırlayan: Nihal Uyanık</p>
+  </footer>
+</body>
+</html>

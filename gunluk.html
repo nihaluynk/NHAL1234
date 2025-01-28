@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Günlük Plan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: #743457;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 4px solid #763b99;
+    }
+
+    main {
+      margin: 20px auto;
+      max-width: 800px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #94295b;
+      color: white;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      border: none;
+      background: #f4f4f9;
+      font-size: 1em;
+      padding: 5px;
+      text-align: center;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      background-color: #e8f0ff;
+    }
+
+    h1 {
+      color: #00adb3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #30a181;
+      color: white;
+      border-top: 4px solid #bc49c9;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 15px;
+      background: #d5cb37;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: #bd8c8c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Günlük Plan</h1>
+  </header>
+  
+  <a href="index.html" class="back-link">Ana Sayfaya Dön</a>
+
+  <main>
+    <h2>Günün Saatleri</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Saat</th>
+          <th>Görev</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Saatler için satırlar, her birine input ekliyoruz -->
+        <tr><td>00:00</td><td><input type="text" id="task-00" placeholder="Görev yazın..." oninput="saveTask(0)"></td></tr>
+        <tr><td>01:00</td><td><input type="text" id="task-01" placeholder="Görev yazın..." oninput="saveTask(1)"></td></tr>
+        <tr><td>02:00</td><td><input type="text" id="task-02" placeholder="Görev yazın..." oninput="saveTask(2)"></td></tr>
+        <tr><td>03:00</td><td><input type="text" id="task-03" placeholder="Görev yazın..." oninput="saveTask(3)"></td></tr>
+        <tr><td>04:00</td><td><input type="text" id="task-04" placeholder="Görev yazın..." oninput="saveTask(4)"></td></tr>
+        <tr><td>05:00</td><td><input type="text" id="task-05" placeholder="Görev yazın..." oninput="saveTask(5)"></td></tr>
+        <tr><td>06:00</td><td><input type="text" id="task-06" placeholder="Görev yazın..." oninput="saveTask(6)"></td></tr>
+        <tr><td>07:00</td><td><input type="text" id="task-07" placeholder="Görev yazın..." oninput="saveTask(7)"></td></tr>
+        <tr><td>08:00</td><td><input type="text" id="task-08" placeholder="Görev yazın..." oninput="saveTask(8)"></td></tr>
+        <tr><td>09:00</td><td><input type="text" id="task-09" placeholder="Görev yazın..." oninput="saveTask(9)"></td></tr>
+        <tr><td>10:00</td><td><input type="text" id="task-10" placeholder="Görev yazın..." oninput="saveTask(10)"></td></tr>
+        <tr><td>11:00</td><td><input type="text" id="task-11" placeholder="Görev yazın..." oninput="saveTask(11)"></td></tr>
+        <tr><td>12:00</td><td><input type="text" id="task-12" placeholder="Görev yazın..." oninput="saveTask(12)"></td></tr>
+        <tr><td>13:00</td><td><input type="text" id="task-13" placeholder="Görev yazın..." oninput="saveTask(13)"></td></tr>
+        <tr><td>14:00</td><td><input type="text" id="task-14" placeholder="Görev yazın..." oninput="saveTask(14)"></td></tr>
+        <tr><td>15:00</td><td><input type="text" id="task-15" placeholder="Görev yazın..." oninput="saveTask(15)"></td></tr>
+        <tr><td>16:00</td><td><input type="text" id="task-16" placeholder="Görev yazın..." oninput="saveTask(16)"></td></tr>
+        <tr><td>17:00</td><td><input type="text" id="task-17" placeholder="Görev yazın..." oninput="saveTask(17)"></td></tr>
+        <tr><td>18:00</td><td><input type="text" id="task-18" placeholder="Görev yazın..." oninput="saveTask(18)"></td></tr>
+        <tr><td>19:00</td><td><input type="text" id="task-19" placeholder="Görev yazın..." oninput="saveTask(19)"></td></tr>
+        <tr><td>20:00</td><td><input type="text" id="task-20" placeholder="Görev yazın..." oninput="saveTask(20)"></td></tr>
+        <tr><td>21:00</td><td><input type="text" id="task-21" placeholder="Görev yazın..." oninput="saveTask(21)"></td></tr>
+        <tr><td>22:00</td><td><input type="text" id="task-22" placeholder="Görev yazın..." oninput="saveTask(22)"></td></tr>
+        <tr><td>23:00</td><td><input type="text" id="task-23" placeholder="Görev yazın..." oninput="saveTask(23)"></td></tr>
+      </tbody>
+    </table>
+  </main>
+  
+  <footer>
+    <p>Hazırlayan: Nihal Uyanık</p>
+  </footer>
+
+  <script>
+    // Görevleri yerel depolamaya kaydetme fonksiyonu
+    function saveTask(hour) {
+      const taskInput = document.getElementById(`task-${hour}`);
+      const task = taskInput.value;
+      localStorage.setItem(`task-${hour}`, task);
+    }
+
+    // Sayfa yüklendiğinde görevleri geri yüklemek
+    window.onload = function() {
+      for (let i = 0; i < 24; i++) {
+        const task = localStorage.getItem(`task-${i}`);
+        if (task) {
+          document.getElementById(`task-${i}`).value = task;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

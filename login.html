@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; /* Pastel pembe */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #7b1fa2; /* Pastel mor */
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #7b1fa2;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #9c4dcc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Giriş Yap</h1>
+    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" id="password" placeholder="Şifre" required>
+    <button onclick="login()">Giriş Yap</button>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                localStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('userName', username);
+                window.location.href = "index.html";  // Giriş yaptıktan sonra ana sayfaya yönlendir
+            } else {
+                alert('Lütfen kullanıcı adı ve şifreyi giriniz.');
+            }
+        }
+    </script>
+</body>
+</html>

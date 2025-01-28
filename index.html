@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY PLANNER</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: rgb(26, 24, 21);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    header {
+      background: #aea0ab;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 4px solid #9a719e;
+      position: relative;
+    }
+
+    #reminder {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: #9062ec;
+      color: #fff;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 0.5em;
+      border-left: 4px solid #e0a800;
+      border-radius: 5px 0 0 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      background: #695caf;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #50d8b6;
+    }
+
+    main {
+      margin: 20px auto;
+      max-width: 1000px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      flex: 1;
+    }
+
+    section {
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #924186;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #e9ecef;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #3cd2b2;
+      color: white;
+      border-top: 4px solid #a7defd;
+      width: 100%;
+    }
+
+    /* Sticker ve Çiçekler */
+    .sticker {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-size: cover;
+      z-index: 1;
+    }
+
+    .sticker1 {
+      top: 10px;
+      left: 10px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/760/760890.png'); /* Kedi Sticker */
+    }
+
+    .sticker3 {
+      bottom: 10px;
+      left: 10px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png'); /* Gülümseyen Yüz */
+    }
+
+    .sticker4 {
+      bottom: 10px;
+      right: 10px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/813/813938.png'); /* Kalp Sticker */
+    }
+  </style>
+</head>
+<body>
+  <div class="sticker sticker1"></div>
+  <div class="sticker sticker3"></div>
+  <div class="sticker sticker4"></div>
+
+  <header>
+    <h1>Dijital Ajanda Sistemi</h1>
+    <div id="reminder">
+      Yaklaşan planlarınızı görüntülemek için planlarınızı güncelleyin!
+    </div>
+  </header>
+  
+  <nav>
+    <a href="gunluk.html">Günlük Plan</a>
+    <a href="haftalik.html">Haftalık Plan</a>
+    <a href="aylik.html">Aylık Plan</a>
+    <a href="index.html">Ana Sayfa</a>
+  </nav>
+  
+  <main>
+    <section id="motivation">
+      <p>"Başarı, tutkulu bir çalışma ve istikrarlı bir çabanın sonucudur. Hedeflerinize ulaşmak için adımlarınızı sağlam atın!"</p>
+    </section>
+
+    <section id="introduction">
+      <h2>Sistem Hakkında</h2>
+      <p>Bu dijital ajanda sistemi, günlük, haftalık ve aylık planlarını düzenleyerek hedeflerinize ulaşmanıza yardımcı olmak için tasarlanmıştır.</p>
+    </section>
+  </main>
+  
+  <footer>
+    <p>EDIT BY: NİHAL UYANIK</p>
+  </footer>
+
+  <script>
+    // Görevler ve hatırlatıcılar için basit bir kontrol mekanizması
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    function checkUpcomingTasks() {
+      const now = new Date();
+      tasks.forEach(task => {
+        const taskDate = new Date(task.date);
+        const oneWeekBefore = new Date(taskDate.getTime() - 7 * 24 * 60 * 60 * 1000); // 1 hafta önce
+        const oneDayBefore = new Date(taskDate.getTime() - 24 * 60 * 60 * 1000); // 1 gün önce
+        const twoHoursBefore = new Date(taskDate.getTime() - 2 * 60 * 60 * 1000); // 2 saat önce
+
+        // Bildirim zamanı
+        if (now >= oneWeekBefore && now < oneDayBefore) {
+          alert(`Hatırlatma: Görev "${task.name}" 1 hafta sonra yapılacak.`);
+        } else if (now >= oneDayBefore && now < twoHoursBefore) {
+          alert(`Hatırlatma: Görev "${task.name}" 1 gün sonra yapılacak.`);
+        } else if (now >= twoHoursBefore) {
+          alert(`Hatırlatma: Görev "${task.name}" 2 saat sonra yapılacak.`);
+        }
+      });
+    }
+
+    // Sayfa yüklendiğinde görevleri kontrol et
+    window.onload = function() {
+      checkUpcomingTasks();
+    }
+  </script>
+</body>
+</html>

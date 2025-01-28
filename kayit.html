@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; /* Pastel pembe */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #7b1fa2; /* Pastel mor */
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #7b1fa2;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #9c4dcc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kayıt Ol</h1>
+    <input type="text" id="isim" placeholder="İsim" required><br>
+    <input type="text" id="soyisim" placeholder="Soyisim" required><br>
+    <input type="date" id="dogumTarihi" placeholder="Doğum Tarihi" required><br>
+    <input type="text" id="username" placeholder="Kullanıcı Adı" required><br>
+    <input type="password" id="password" placeholder="Şifre" required><br>
+    <button onclick="register()">Kayıt Ol</button>
+
+    <script>
+        function register() {
+            const isim = document.getElementById('isim').value;
+            const soyisim = document.getElementById('soyisim').value;
+            const dogumTarihi = document.getElementById('dogumTarihi').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (isim && soyisim && dogumTarihi && username && password) {
+                // Verileri localStorage'a kaydet
+                localStorage.setItem('isim', isim);
+                localStorage.setItem('soyisim', soyisim);
+                localStorage.setItem('dogumTarihi', dogumTarihi);
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+
+                // Kayıt sonrası kullanıcıyı giriş sayfasına yönlendir
+                window.location.href = "login.html";
+            } else {
+                alert('Lütfen tüm bilgileri doldurun.');
+            }
+        }
+    </script>
+</body>
+</html>

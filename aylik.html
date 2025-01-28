@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aylık Plan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: rgb(107, 101, 172);
+    }
+
+    header {
+      background: #8d0ce3;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 4px solid #82397f;
+    }
+
+    main {
+      margin: 20px auto;
+      max-width: 800px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(207, 160, 223, 0.892);
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    table th {
+      background-color: #8ddb78;
+      color: white;
+    }
+
+    h1 {
+      color: #ebf2f7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #7c1c85;
+      color: white;
+      border-top: 4px solid #ce7482;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #356c80;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .back-link:hover {
+      background: #e8e9eb;
+    }
+
+    nav {
+      background: #1a804b;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #9ad13c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #64174c;
+      color: white;
+      border-top: 4px solid #373a3c;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aylık Plan</h1>
+  </header>
+  
+  <nav>
+    <a href="gunluk.html">Günlük Plan</a>
+    <a href="haftalik.html">Haftalık Plan</a>
+    <a href="aylik.html">Aylık Plan</a>
+    <a href="index.html">Ana Sayfa</a>
+  </nav>
+
+  <main>
+    <h2>Aylık Takvim</h2>
+    <table id="calendar">
+      <thead>
+        <tr>
+          <th>Pzt</th>
+          <th>Sal</th>
+          <th>Çar</th>
+          <th>Per</th>
+          <th>Cum</th>
+          <th>Cmt</th>
+          <th>Paz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td onclick="editTask(1)">1</td>
+          <td onclick="editTask(2)">2</td>
+          <td onclick="editTask(3)">3</td>
+          <td onclick="editTask(4)">4</td>
+          <td onclick="editTask(5)">5</td>
+          <td onclick="editTask(6)">6</td>
+          <td onclick="editTask(7)">7</td>
+        </tr>
+        <tr>
+          <td onclick="editTask(8)">8</td>
+          <td onclick="editTask(9)">9</td>
+          <td onclick="editTask(10)">10</td>
+          <td onclick="editTask(11)">11</td>
+          <td onclick="editTask(12)">12</td>
+          <td onclick="editTask(13)">13</td>
+          <td onclick="editTask(14)">14</td>
+        </tr>
+        <tr>
+          <td onclick="editTask(15)">15</td>
+          <td onclick="editTask(16)">16</td>
+          <td onclick="editTask(17)">17</td>
+          <td onclick="editTask(18)">18</td>
+          <td onclick="editTask(19)">19</td>
+          <td onclick="editTask(20)">20</td>
+          <td onclick="editTask(21)">21</td>
+        </tr>
+        <tr>
+          <td onclick="editTask(22)">22</td>
+          <td onclick="editTask(23)">23</td>
+          <td onclick="editTask(24)">24</td>
+          <td onclick="editTask(25)">25</td>
+          <td onclick="editTask(26)">26</td>
+          <td onclick="editTask(27)">27</td>
+          <td onclick="editTask(28)">28</td>
+        </tr>
+        <tr>
+          <td onclick="editTask(29)">29</td>
+          <td onclick="editTask(30)">30</td>
+          <td onclick="editTask(31)">31</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="index.html" class="back-link">Ana Sayfaya Dön</a>
+  </main>
+
+  <footer>
+    <p>Hazırlayan: Nihal Uyanık</p>
+  </footer>
+
+  <script>
+    // Sayfa yüklendiğinde görevleri yükle
+    window.onload = function() {
+      for (let day = 1; day <= 31; day++) {
+        let task = localStorage.getItem('task-' + day);
+        if (task) {
+          document.querySelector('td:nth-child(' + day + ')').textContent = task;
+        }
+      }
+    };
+
+    // Görev düzenleme fonksiyonu
+    function editTask(day) {
+      let currentTask = localStorage.getItem('task-' + day);
+      let newTask = prompt("Bu gün için görev girin:", currentTask);
+      if (newTask !== null) {
+        localStorage.setItem('task-' + day, newTask);
+        document.querySelector('td:nth-child(' + day + ')').textContent = newTask;
+      }
+    }
+  </script>
+</body>
+</html>
